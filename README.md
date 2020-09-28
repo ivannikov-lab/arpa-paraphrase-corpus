@@ -4,14 +4,14 @@ We provide sentential paraphrase detection train, test datasets as well as BERT-
 
 To sentences in the dataset are taken from [Hetq](https://hetq.am/) and [Panarmenian](http://www.panarmenian.net/) news articles.
 
-To generate paraphrase for the sentences, we used back translation from Armenian to English. We repeated the step twice, after which the generated paraphrases were manually reviewed. Invalid sentences were filtered out, while the rest were labelled as either paraphrase or non-paraphrase. The sentences are divided into train and test sets. Test examples were reviewed by 3 different annotators. In addition, to increase the number of negative examples, we padded the dataset with automatically generated negative pairs, including pairs of consecutive sentences and random pairs.
+To generate paraphrase for the sentences, we used back translation from Armenian to English. We repeated the step twice, after which the generated paraphrases were manually reviewed. Invalid sentences were filtered out, while the rest were labelled as either paraphrase, near paraphrase or non-paraphrase (with 1, 0, -1 labels respectively). The sentences are divided into train and test sets. Test examples were reviewed by 3 different annotators. In addition, to increase the number of non-paraphrase pairs, we padded the dataset with automatically generated negative examples, including pairs of consecutive sentences and random pairs.
 
-|Number of examples|Total|Paraphrase|Non-paraphrase|Near paraphrase|
-|:-- |     :---:    | :---:  |          :---:          | :---:  |
-|Train   | 4233         |1339   |2683               | 211 |
-|Test    | 1682         |1021   |448                  | 213 |
+|Number of examples|Total|Paraphrase|Non-paraphrase (near paraphrase)|
+|:-- |     :---:    | :---:  |          :---:  |
+|Train   | 4233         |1339   |2683 (211) |
+|Test    | 1682         |1021   |448 (213) |
 
-We finetuned Multilingual BERT on several training sets, including the proposed ARPA dataset, and evaluated their performance on our test set. The results are provided below:
+We finetuned Multilingual BERT on several training sets, including the proposed ARPA dataset, and evaluated their performance on our test set. During training and evaluation, near paraphrase and non-paraphrase pairs were combined into one class. The results are provided below:
 
 |BERT Model | Train set |   F1   |  Acc.     |
 |:-- |     :---:    |     :---:    |     :---:    |
