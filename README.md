@@ -8,8 +8,8 @@ To generate paraphrase for the sentences, we used back translation from Armenian
 
 |Number of examples|Total|Paraphrase|Non-paraphrase (near paraphrase)|
 |:-- |     :---:    | :---:  |          :---:  |
-|Train   | 4233         |1339   |2683 (211) |
-|Test    | 1682         |1021   |448 (213) |
+|Train   | 4233         |1339   |2684 (210) |
+|Test    | 1682         |1021   |449 (212) |
 
 We finetuned Multilingual BERT on several training sets, including the proposed ARPA dataset, and evaluated their performance on our test set. During training and evaluation, near paraphrase and non-paraphrase pairs were combined into one class. The results are provided below:
 
